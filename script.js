@@ -1,25 +1,32 @@
-let humanChoice = document.getElementById("humanChoice");
+let humanChoiceInput = document.getElementById("humanChoiceInput");
 let computerChoiceDisplay = document.getElementById("computerChoice");
 let resultDisplay = document.getElementById("result");
 let userScoreDisplay = document.getElementById("userScore");
 let computerScoreDisplay = document.getElementById("computerScore");
+let buttons = document.querySelectorAll(".button");
+let playButton = document.getElementById("playButton");
 
 let userScore = 0;
 let computerScore = 0;
 
-function getHumanChoice() {
-    let choice = humanChoice.value.trim().toLowerCase();
+function getHumanInput() {
+    let choice = humanChoiceInput.value.trim().toLowerCase();
     if (choice === "") {
         alert("Please enter Rock, Paper, or Scissors");
         return null;
-    }
-    if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
+    } else if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
         alert("Invalid choice. Please enter Rock, Paper, or Scissors");
         return null;
     }
-    document.getElementById("userChoice").innerHTML = `<p>Your Choice = ${choice}</p>`;
     return choice;
 }
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        humanChoiceInput.value = button.innerText.toLowerCase();
+        document.getElementById("result").innerHTML = `<p>Your Choice = ${button.innerText}</p>`;
+    });
+});
 
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
@@ -49,7 +56,7 @@ function updateScores() {
 }
 
 function playGame() {
-    let humanChoiceValue = getHumanChoice();
+    let humanChoiceValue = getHumanInput();
     if (!humanChoiceValue) return;
 
     let computerChoiceValue = getComputerChoice();
@@ -59,17 +66,6 @@ function playGame() {
     resultDisplay.innerHTML = `<p>${result}</p>`;
 
     updateScores();
-
-    if (userScore >= 5 || computerScore >= 5) {
-        if (userScore > computerScore) {
-            alert("You win the game!");
-        } else {
-            alert("Computer wins the game!");
-        }
-        userScore = 0;
-        computerScore = 0;
-        updateScores();
-    }
 }
 
-document.getElementById("playButton").addEventListener("click", playGame);
+playButton.addEventListener("click", playGame);

@@ -9,13 +9,19 @@
             <h1>Rock Paper Scissors</h1>
         </div>
         <div class="container">
-            <input type="text" id="humanChoice" placeholder="Rock, Paper or Scissors"></input>
-            <button id="playButton">Play</button>
-            <p id="result"> Result - </p>
-            <p id="userChoice"> User Choice - </p>
-            <p id="computerChoice"> Computer Choice - </p>
-            <p id="userScore"> User Score - </p>
-            <p id="computerScore"> Computer Score - </p>
+            <div class="input" id="input">
+                <input type="text" id="humanChoiceInput" class="humanChoice" placeholder="Rock, Paper or Scissors">
+                <button id="playButton">Play</button>
+            </div>
+            <div class="choices" id="choices">
+                <button class="button">Rock</button>
+                <button class="button">Paper</button>
+                <button class="button">Scissors</button>
+            </div>
+            <p id="result">Your choice - </p>
+            <p id="computerChoice">Computer Choice - </p>
+            <p id="userScore">User Score - </p>
+            <p id="computerScore">Computer Score - </p>
             <p id="userWins"></p>
             <p id="computerWins"></p>
             <p id="ties"></p>

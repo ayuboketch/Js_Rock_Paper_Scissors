@@ -19,3 +19,17 @@ input {
     padding: 10px;
     border-radius: 10px;
 }
+.choices {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+    padding-top: 20px;
+}
+.input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 200px;
+}
